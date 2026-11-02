@@ -32,7 +32,9 @@ def main() -> None:
     val_scores = model.predict_proba(val[PRE_TX_FEATURES])[:, 1]
     prec, rec, thr = precision_recall_curve(val["isFraud"], val_scores)
     i = np.where(rec[:-1] >= TARGET_RECALL)[0][-1]
-    threshold = float(thr[i])
+       # Midpoint to the next lower distinct validation score, so the threshold
+       # does not sit exactly on a tied score value
+    threshold = float((thr[i] + thr[i - 1]) / 2) if i > 0 else float(thr[i])
 
     test_scores = model.predict_proba(test[PRE_TX_FEATURES])[:, 1]
     preds = test_scores >= threshold

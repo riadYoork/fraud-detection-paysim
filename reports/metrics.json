@@ -1,8 +1,8 @@
 {
-  "threshold": 0.9990998144569343,
+  "threshold": 0.9989782785652386,
   "test_pr_auc": 0.9985440371715154,
-  "test_precision": 0.998769987699877,
-  "test_recall": 0.9534992954438704,
+  "test_precision": 0.9987837509121869,
+  "test_recall": 0.9643024894316581,
   "train_rows": 1889936,
   "val_rows": 327969,
   "test_rows": 552504,
